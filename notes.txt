@@ -1,0 +1,43 @@
+COMPLETED STEPS
+  1.  Golden Image Created
+  2.  Application Created in Elastic Beanstalk (M4D1/2)
+  3.  Docker image created (logicworks:dockerfile)
+  4.  Uploaded logicworks:dockerfile image to ECR
+  5.  
+
+
+OUTSTANDING STEPS
+  1.  Setup CICD Pipeline with Manual Approval
+  2.  Define Instructure
+  	- set up regions
+  	- create EC2s using gold image
+  	- create CloudFormation template (pri -> DR)
+  3.  List Monitors in place
+
+
+Dockerfile
+  - FROM python:3.6
+    COPY . /app
+    WORKDIR /app
+    RUN pip install Flask==1.0.2
+    EXPOSE 5000
+    CMD ["python", "application.py"]
+    
+    FROM dockerfile --> BUILD image -->  RUNS container
+
+
+APPLICATION TO CHANGE and DISTRIBUTE VIA CI/CD
+--------------------------------------------------
+Upload dockerfile and application.py file to elastic beanstalk
+
+
+    
+ Gold Image
+ ----------
+   sudo yum update -y
+   sudo yum install docker -y
+   
+   sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   sudo yum-config-manager --enable epel
+   
+   
